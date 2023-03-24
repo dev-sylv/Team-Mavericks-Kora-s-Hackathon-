@@ -20,7 +20,7 @@ const Hero = () => {
                 An awesome place to purchase securely with no worries or delay.
                 It is perfectly built for you.
               </p>
-              <NavLink to="/login" style={{ textDecoration: "none" }}>
+              <NavLink to="/get-started" style={{ textDecoration: "none" }}>
                 <button>Use the Web App</button>
               </NavLink>
             </TextHold>

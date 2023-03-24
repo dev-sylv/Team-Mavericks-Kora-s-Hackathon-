@@ -2,7 +2,7 @@ import React, { FC, lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import spinner from "../../Assets/Ripple.svg";
 import Header from "./Header";
-// import Hero from "./Hero";
+import Hero from "./Hero";
 
 // const AboutPage = lazy(() => import("./About"));
 // const AppWorks = lazy(() => import("./AppWorks"));
@@ -55,7 +55,7 @@ const Homescreen: FC = () => {
   return (
     <div>
       <Header />
-      {/* <Hero /> */}
+      <Hero />
       <LazyComponent>
         <Suspense fallback={null}>{/* <AboutPage /> */}</Suspense>
       </LazyComponent>

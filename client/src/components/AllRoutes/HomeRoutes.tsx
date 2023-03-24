@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate, useRoutes } from "react-router-dom";
+import Homescreen from "../LandingPage/HomeScreen";
 // import BizzLogin from "../Auth/Business.Login";
 // import BizzSignUp from "../Auth/Business.Register";
 // import Login from "../Auth/Login";
 // import Register from "../Auth/Register";
 // import SelectAccount from "../Auth/SelectAccount";
 // import { useAppSelector } from "../Global/Store";
-// import Homescreen from "../LandingPage/Homescreen";
 
 const HomeRoute = () => {
   //   const user = useAppSelector((state) => state.bizClient);
@@ -24,7 +24,7 @@ const HomeRoute = () => {
   const elements = useRoutes([
     {
       path: "/",
-      //   element: <Homescreen />,
+      element: <Homescreen />,
     },
     {
       path: "/get-started",
