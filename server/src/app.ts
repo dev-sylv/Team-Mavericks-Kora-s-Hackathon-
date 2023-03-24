@@ -13,7 +13,7 @@ import GiftCardRoutes from "./Routes/GiftCardRoutes";
 import { AppError, HTTPCODES } from "./Utils/AppError";
 
 import { ErrorHandler } from "./Middlewares/ErrorHandler/ErrorHandler";
-s
+
 import user from "./Routes/userRouter";
 
 export const AppConfig = (app: Application) => {
