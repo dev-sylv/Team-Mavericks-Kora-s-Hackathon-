@@ -1,14 +1,14 @@
 import express, { Application, Request, Response } from "express";
-// import { DBCONNECTION } from "./Config/DB";
+import { DBCONNECTION } from "./Config/DB";
 
-// import { EnvironmentVariables } from "./Config/EnvironmentVariables";
-// import { AppConfig } from "./app";
+import { EnvironmentVariables } from "./Config/EnvironmentVariables";
+import { AppConfig } from "./app";
 
-// const port = EnvironmentVariables.PORT;
+const port = EnvironmentVariables.PORT;
 
 const app: Application = express();
-// AppConfig(app);
-// DBCONNECTION();
+AppConfig(app);
+DBCONNECTION();
 
 app.get("/", (req: Request, res: Response) => {
   return res.status(200).json({
@@ -16,9 +16,9 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-const server = app.listen(2020, () => {
+const server = app.listen(port, () => {
   console.log("");
-  console.log("Server is up and running on port", 2022);
+  console.log("Server is up and running on port", port);
 });
 
 // To protect my server from crashing when users do what they are not supposed to do
