@@ -11,3 +11,16 @@ export interface UserDetails {
   // companyGiftCards: {}[];
   PurchasedGiftCards: {}[];
 }
+export interface BusinessDetails {
+  name: string;
+  email: string;
+  logo: string;
+  Balance: string;
+  phoneNumber: number;
+  password: string;
+  confirmPassword: string;
+  BusinessCode: string;
+  status: string;
+  TransactionHistory: {}[];
+  giftCard: {}[];
+}
