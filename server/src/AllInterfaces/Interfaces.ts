@@ -24,3 +24,16 @@ export interface BusinessDetails {
   TransactionHistory: {}[];
   giftCard: {}[];
 }
+export interface GiftCardDetails {
+  name: string;
+  BrandLogo: string;
+  uniqueID: string;
+  colour: string;
+  moneyWorth: number;
+}
+
+export interface HistoryDetails {
+  message: string;
+  transactionReference: number;
+  transactionType: string;
+}
