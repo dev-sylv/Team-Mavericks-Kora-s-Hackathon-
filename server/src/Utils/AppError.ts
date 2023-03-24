@@ -16,3 +16,30 @@ export enum HTTPCODES {
   GATEWAY_TIMEOUT = 508,
   NETWORK_TIMEOUT = 599,
 }
+interface ErrorTags {
+  name?: string;
+  isOperational?: boolean;
+  message?: string;
+  httpcode: HTTPCODES;
+}
+
+export class AppError extends Error {
+  public readonly name: string;
+  public readonly isOperational: boolean = true;
+  public readonly httpcode: HTTPCODES;
+
+  constructor(args: ErrorTags) {
+    super(args.message);
+
+    Object.setPrototypeOf(this, new.target.prototype);
+
+    this.httpcode = args.httpcode;
+    this.name = args.name || "Error";
+
+    if (args.isOperational !== undefined) {
+      this.isOperational = args.isOperational;
+    }
+
+    Error.captureStackTrace(this);
+  }
+}
