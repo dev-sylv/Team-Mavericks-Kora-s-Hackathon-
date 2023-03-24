@@ -15,7 +15,7 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-  key: "piggyvestapp",
+  key: "GiftCard",
   version: 1,
   storage,
 };
