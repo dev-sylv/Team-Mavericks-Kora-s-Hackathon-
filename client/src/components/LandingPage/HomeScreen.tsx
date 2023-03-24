@@ -5,7 +5,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 
 const AboutPage = lazy(() => import("./About"));
-// const AppWorks = lazy(() => import("./AppWorks"));
+const AppWorks = lazy(() => import("./AppWorks"));
 // const GetStarted = lazy(() => import("./GetStarted"));
 // const Footer = lazy(() => import("./Footer"));
 
@@ -61,10 +61,12 @@ const Homescreen: FC = () => {
           <AboutPage />
         </Suspense>
       </LazyComponent>
-      {/* <LazyComponent>
-        <Suspense fallback={null}><AppWorks /></Suspense>
-      </LazyComponent>
       <LazyComponent>
+        <Suspense fallback={null}>
+          <AppWorks />
+        </Suspense>
+      </LazyComponent>
+      {/* <LazyComponent>
         <Suspense fallback={null}><GetStarted /></Suspense>
       </LazyComponent>
       <LazyComponent>
