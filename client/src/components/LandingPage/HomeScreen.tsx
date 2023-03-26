@@ -7,7 +7,7 @@ import Hero from "./Hero";
 const AboutPage = lazy(() => import("./About"));
 const AppWorks = lazy(() => import("./AppWorks"));
 const GetStarted = lazy(() => import("./GetStarted"));
-// const Footer = lazy(() => import("./Footer"));
+const Footer = lazy(() => import("./Footer"));
 
 const LazyComponent: FC<{ children: JSX.Element }> = ({ children }) => {
   const [loaded, setLoaded] = useState(false);
@@ -71,9 +71,11 @@ const Homescreen: FC = () => {
           <GetStarted />
         </Suspense>
       </LazyComponent>
-      {/* <LazyComponent>
-        <Suspense fallback={null}><Footer /></Suspense>
-      </LazyComponent> */}
+      <LazyComponent>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      </LazyComponent>
     </div>
   );
 };
