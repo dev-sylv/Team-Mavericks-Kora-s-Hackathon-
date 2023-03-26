@@ -53,3 +53,24 @@ export const GenerateAGiftCard = AsyncHandler(
     }
   }
 );
+
+// Get all gift card in the database:
+export const AllGiftCards = AsyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const Giftcards = await GiftCardModels.find().sort({ createdAt: -1 });
+
+    if (!Giftcards) {
+      next(
+        new AppError({
+          message: "Couldn't get all gift cards",
+          httpcode: HTTPCODES.INTERNAL_SERVER_ERROR,
+        })
+      );
+    }
+
+    return res.status(200).json({
+      message: `Successfully got all ${Giftcards.length} gift cards`,
+      data: Giftcards,
+    });
+  }
+);
