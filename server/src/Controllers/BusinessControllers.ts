@@ -87,3 +87,24 @@ export const BusinessLogin = AsyncHandler(
     }
   }
 );
+
+// Get single Business Account:
+export const GetSingleBusinessAcount = AsyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const SingleBusiness = await BusinessModels.findById(req.params.businessID);
+
+    if (!SingleBusiness) {
+      next(
+        new AppError({
+          message: "Business Account not found",
+          httpcode: HTTPCODES.NOT_FOUND,
+        })
+      );
+    }
+
+    return res.status(200).json({
+      message: "Successfully got this business account",
+      data: SingleBusiness,
+    });
+  }
+);
