@@ -32,7 +32,7 @@ const SelectAccount = () => {
           <h1>
             Please Select <br /> Account Type
           </h1>
-          <p>Please select an account type to get started 🙂</p>
+          <p>Please select an account type to get started 🙂...</p>
           <Img src={phone} alt="" />
           <img
             src={flower}
@@ -107,7 +107,7 @@ const Text = styled.div`
 
   h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 500;
     margin-bottom: 10px;
   }
