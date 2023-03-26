@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -20,13 +21,22 @@ const Footer = () => {
           <Trailing>About us</Trailing>
           <Trailing>Terms</Trailing>
           <Trailing>Privacy Policy</Trailing>
-          <Trailing>AML Policy</Trailing>
           <Trailing>FAQs</Trailing>
         </Connect>
         <Company>
           <Heading>Connect with Us</Heading>
-          <Trailing>Contact us</Trailing>
-          <Trailing>Follow us on Instagram</Trailing>
+          <Trailing>
+            <FaFacebook style={{ fontSize: "20px" }} /> Facebook
+          </Trailing>
+          <Trailing>
+            <FaTwitter style={{ fontSize: "20px" }} /> Twitter
+          </Trailing>
+          <Trailing>
+            <FaInstagram style={{ fontSize: "20px" }} /> Instagram
+          </Trailing>
+          <Trailing>
+            <FaLinkedin style={{ fontSize: "20px" }} /> LinkedIn
+          </Trailing>
         </Company>
       </Container>
     </div>
@@ -66,6 +76,9 @@ const Trailing = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
   :hover {
     color: blue;
