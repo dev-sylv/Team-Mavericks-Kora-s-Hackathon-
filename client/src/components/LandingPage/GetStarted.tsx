@@ -10,7 +10,7 @@ const GetStarted = () => {
           <Head>
             Sign Up to <br /> get started
           </Head>
-          <NavLink to="/select-account" style={{ textDecoration: "none" }}>
+          <NavLink to="/get-started" style={{ textDecoration: "none" }}>
             <Button>Get Started</Button>
           </NavLink>
         </Wrapper>

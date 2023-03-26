@@ -156,26 +156,6 @@ const Navigation = styled.p`
   }
 `;
 
-const Button = styled.button<{ color: string; bg: string }>`
-  padding: 10px 20px;
-  height: 6vh;
-  font-size: 16px;
-  background-color: ${({ bg }) => bg};
-  border: 0;
-  color: ${({ color }) => color};
-  border: 1px solid blue;
-  border-radius: 5px;
-  font-weight: 600;
-  margin-left: 40px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.2s ease;
-
-  :hover {
-    cursor: pointer;
-  }
-`;
 const Button2 = styled.button<{ color: string; bg: string }>`
   padding: 10px 20px;
   height: 6vh;
@@ -194,7 +174,7 @@ const Button2 = styled.button<{ color: string; bg: string }>`
 
   :hover {
     cursor: pointer;
-    background-color: #8929fd;
+    background-color: #852ef1;
   }
 
   @media screen and (max-width: 768px) {

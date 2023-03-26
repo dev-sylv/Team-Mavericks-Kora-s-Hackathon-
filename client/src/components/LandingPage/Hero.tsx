@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import hero from "../../Assets/hero.webp";
-import money from "../../Assets/money.webp";
-import hundred from "../../Assets/100.webp";
 import { NavLink } from "react-router-dom";
+import { TfiWorld } from "react-icons/tfi";
 
 const Hero = () => {
   return (
@@ -21,7 +20,9 @@ const Hero = () => {
                 It is perfectly built for you.
               </p>
               <NavLink to="/get-started" style={{ textDecoration: "none" }}>
-                <button>Use the Web App</button>
+                <button>
+                  Use the Web App <TfiWorld />
+                </button>
               </NavLink>
             </TextHold>
           </Left>
@@ -57,6 +58,8 @@ const TextHold = styled.div`
   button {
     padding: 15px 35px;
     background-color: #9342f6;
+    display: flex;
+    gap: 10px;
     color: #fff;
     font-size: 16px;
     border-radius: 5px;
