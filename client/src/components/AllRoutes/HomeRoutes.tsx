@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { useNavigate, useRoutes } from "react-router-dom";
+import { useRoutes, Navigate, useNavigate } from "react-router-dom";
+import BizzLogin from "../Auth/BusinessAuth/Business.Login";
+import BizzSignUp from "../Auth/BusinessAuth/Business.Register";
 import SelectAccount from "../Auth/SelectAccount";
+import Login from "../Auth/UserAuth/User.Login";
+import Register from "../Auth/UserAuth/User.Register";
 import Homescreen from "../LandingPage/HomeScreen";
-// import BizzLogin from "../Auth/Business.Login";
-// import BizzSignUp from "../Auth/Business.Register";
-// import Login from "../Auth/Login";
-// import Register from "../Auth/Register";
 // import { useAppSelector } from "../Global/Store";
 
 const HomeRoute = () => {
@@ -32,19 +32,28 @@ const HomeRoute = () => {
     },
     {
       path: "/login",
-      //   element: <Login />,
-    },
-    {
-      path: "/business/register",
-      //   element: <BizzSignUp />,
-    },
-    {
-      path: "/business/login",
-      //   element: <BizzLogin />,
+      element: <Login />,
     },
     {
       path: "/register",
-      //   element: <Register />,
+      element: <Register />,
+    },
+    {
+      path: "business",
+      children: [
+        {
+          path: "register",
+          element: <BizzSignUp />,
+        },
+        {
+          path: "login",
+          element: <BizzLogin />,
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <Navigate to="/" />,
     },
   ]);
   return <div>{elements}</div>;
