@@ -6,7 +6,7 @@ import Hero from "./Hero";
 
 const AboutPage = lazy(() => import("./About"));
 const AppWorks = lazy(() => import("./AppWorks"));
-// const GetStarted = lazy(() => import("./GetStarted"));
+const GetStarted = lazy(() => import("./GetStarted"));
 // const Footer = lazy(() => import("./Footer"));
 
 const LazyComponent: FC<{ children: JSX.Element }> = ({ children }) => {
@@ -66,10 +66,12 @@ const Homescreen: FC = () => {
           <AppWorks />
         </Suspense>
       </LazyComponent>
-      {/* <LazyComponent>
-        <Suspense fallback={null}><GetStarted /></Suspense>
-      </LazyComponent>
       <LazyComponent>
+        <Suspense fallback={null}>
+          <GetStarted />
+        </Suspense>
+      </LazyComponent>
+      {/* <LazyComponent>
         <Suspense fallback={null}><Footer /></Suspense>
       </LazyComponent> */}
     </div>
