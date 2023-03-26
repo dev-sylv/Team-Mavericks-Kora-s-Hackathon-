@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate, useRoutes } from "react-router-dom";
+import SelectAccount from "../Auth/SelectAccount";
 import Homescreen from "../LandingPage/HomeScreen";
 // import BizzLogin from "../Auth/Business.Login";
 // import BizzSignUp from "../Auth/Business.Register";
 // import Login from "../Auth/Login";
 // import Register from "../Auth/Register";
-// import SelectAccount from "../Auth/SelectAccount";
 // import { useAppSelector } from "../Global/Store";
 
 const HomeRoute = () => {
@@ -28,7 +28,7 @@ const HomeRoute = () => {
     },
     {
       path: "/get-started",
-      //   element: <SelectAccount />,
+      element: <SelectAccount />,
     },
     {
       path: "/login",
