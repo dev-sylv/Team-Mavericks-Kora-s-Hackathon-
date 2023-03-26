@@ -47,3 +47,39 @@ export const UsersRegistration = AsyncHandler(
     });
   }
 );
+
+// Users Login:
+export const UsersLogin = AsyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email, password } = req.body;
+
+    const CheckEmail = await UserModels.findOne({ email });
+
+    if (!CheckEmail) {
+      next(
+        new AppError({
+          message: "User not Found",
+          httpcode: HTTPCODES.NOT_FOUND,
+        })
+      );
+    }
+
+    const CheckPassword = await bcrypt.compare(password, CheckEmail!.password);
+
+    if (!CheckPassword) {
+      next(
+        new AppError({
+          message: "Email or password not correct",
+          httpcode: HTTPCODES.CONFLICT,
+        })
+      );
+    }
+
+    if (CheckEmail && CheckPassword) {
+      return res.status(200).json({
+        message: "Login Successfull",
+        data: CheckEmail,
+      });
+    }
+  }
+);
