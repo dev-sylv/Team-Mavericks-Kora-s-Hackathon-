@@ -108,3 +108,32 @@ export const GetSingleBusinessAcount = AsyncHandler(
     });
   }
 );
+
+// Update Business Details:
+export const UpdateBusinessLogo = AsyncHandler(
+  async (req: any, res: Response, next: NextFunction) => {
+    // const { logo } = req.body;
+
+    const CloudImg = await cloud.uploader?.upload(req?.file!.path);
+
+    const BusinessLogo = await BusinessModels.findByIdAndUpdate(
+      req.params.id,
+      { logo: CloudImg.secure_url },
+      { new: true }
+    );
+
+    if (!BusinessLogo) {
+      next(
+        new AppError({
+          message: "An error occured in updating business logo",
+          httpcode: HTTPCODES.INTERNAL_SERVER_ERROR,
+        })
+      );
+    }
+
+    return res.status(201).json({
+      message: "Successfully updated the business brand logo",
+      data: BusinessLogo,
+    });
+  }
+);
