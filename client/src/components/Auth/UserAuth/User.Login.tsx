@@ -6,6 +6,8 @@ import phone from "../../../Assets/phone.png";
 import flower from "../../../Assets/flower.svg";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { TbSquareKey } from "react-icons/tb";
+import Typewriter from "typewriter-effect";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -29,7 +31,23 @@ const Login = () => {
           />
           <h4>MAVERICK</h4>
           <H1>
-            Glad to have <br /> you back
+            <Typewriter
+              options={{
+                loop: true,
+              }}
+              onInit={(typewriter: any) => {
+                typewriter
+                  .typeString("Glad to have..")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .start()
+
+                  .typeString("You back")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .start();
+              }}
+            />
           </H1>
           <p>
             Glad to have you back We are glad to have you back ☺️, Let’s get you
@@ -62,6 +80,37 @@ const Login = () => {
             />
             <input placeholder="Password" />
           </Inputs>
+          <Div
+            style={{
+              display: "flex",
+              marginLeft: "60px",
+              marginTop: "20px",
+              alignItems: "center",
+            }}
+          >
+            <input
+              type="checkbox"
+              style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
+            />
+            <p
+              style={{
+                margin: "0",
+                marginLeft: "10px",
+                fontSize: "15px",
+              }}
+            >
+              Always remember me
+            </p>
+          </Div>
+          <Button>Log in</Button>
+          <P>
+            I don't have an account.{" "}
+            <NavLink to="/register">
+              <span style={{ color: "blue", textDecoration: "none" }}>
+                Create one
+              </span>
+            </NavLink>
+          </P>
         </Right>
       </Container>
     </div>
@@ -69,6 +118,51 @@ const Login = () => {
 };
 
 export default Login;
+
+const Button = styled.button`
+  width: 170px;
+  height: 48px;
+  margin-left: 60px;
+  border: 0;
+  background-color: #8246f3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 31px;
+  font-size: 16px;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-top: 20px;
+    width: 80%;
+  }
+`;
+
+const P = styled.p`
+  margin: 0;
+  margin-left: 60px;
+  font-size: 15px;
+  margin-top: 20px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 80%;
+  }
+`;
+
+const Div = styled.div`
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 10px;
+    width: 80%;
+  }
+`;
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
@@ -156,6 +250,8 @@ const Img = styled.img`
   position: absolute;
   left: 35%;
   bottom: 1px;
+  animation: bounce 2s;
+  animation-iteration-count: infinite;
 
   @media screen and (max-width: 960px) {
     position: static;
@@ -164,9 +260,6 @@ const Img = styled.img`
     margin-left: 120px;
   }
 
-  :hover {
-    animation: bounce 0.5s;
-  }
   @keyframes bounce {
     0%,
     100% {
