@@ -101,6 +101,11 @@ const Login = () => {
               Always remember me
             </p>
           </Div>
+          <Button>Log in</Button>
+          <P>
+            I don't have an account.{" "}
+            <span style={{ color: "blue" }}>Create one</span>
+          </P>
         </Right>
       </Container>
     </div>
@@ -108,6 +113,39 @@ const Login = () => {
 };
 
 export default Login;
+
+const Button = styled.button`
+  width: 170px;
+  height: 48px;
+  margin-left: 60px;
+  border: 0;
+  background-color: #8246f3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 31px;
+  font-size: 16px;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-top: 20px;
+    width: 80%;
+  }
+`;
+
+const P = styled.p`
+  margin: 0;
+  margin-left: 60px;
+  font-size: 15px;
+  margin-top: 20px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 80%;
+  }
+`;
 
 const Div = styled.div`
   display: flex;
