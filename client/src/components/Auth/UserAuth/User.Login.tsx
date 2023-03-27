@@ -105,7 +105,7 @@ const Login = () => {
           <Button>Log in</Button>
           <P>
             I don't have an account.{" "}
-            <NavLink to="/register">
+            <NavLink to="/register" style={{ textDecoration: "none" }}>
               <span style={{ color: "blue", textDecoration: "none" }}>
                 Create one
               </span>
