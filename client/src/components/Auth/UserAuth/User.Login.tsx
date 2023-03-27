@@ -62,6 +62,28 @@ const Login = () => {
             />
             <input placeholder="Password" />
           </Inputs>
+           <Div
+            style={{
+              display: "flex",
+              marginLeft: "60px",
+              marginTop: "20px",
+              alignItems: "center",
+            }}
+          >
+            <input
+              type="checkbox"
+              style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
+            />
+            <p
+              style={{
+                margin: "0",
+                marginLeft: "10px",
+                fontSize: "15px",
+              }}
+            >
+              Always remember me
+            </p>
+          </Div>
         </Right>
       </Container>
     </div>
@@ -69,6 +91,19 @@ const Login = () => {
 };
 
 export default Login;
+
+const Div = styled.div`
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 10px;
+    width: 80%;
+  }
+`;
+
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
