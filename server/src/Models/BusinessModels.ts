@@ -35,12 +35,14 @@ const BusinessSchema: Schema<BusinessDetails> = new Schema(
       unique: true,
     },
     Balance: {
-      type: String,
+      type: Number,
     },
     phoneNumber: {
       type: Number,
-      required: [true, "Please enter your Phone number"],
       unique: true,
+    },
+    dateTime: {
+      type: String,
     },
     status: {
       type: String,

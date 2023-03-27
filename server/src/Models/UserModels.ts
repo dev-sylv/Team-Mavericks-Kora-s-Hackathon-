@@ -27,7 +27,6 @@ const UserSchema: Schema<UserDetails> = new Schema(
     },
     phoneNumber: {
       type: Number,
-      required: [true, "Please enter your Phone number"],
     },
     password: {
       type: String,
@@ -36,6 +35,9 @@ const UserSchema: Schema<UserDetails> = new Schema(
     confirmPassword: {
       type: String,
       required: [true, "Please confirm your password"],
+    },
+    dateTime: {
+      type: String,
     },
     status: {
       type: String,
@@ -50,12 +52,12 @@ const UserSchema: Schema<UserDetails> = new Schema(
         ref: "Histories",
       },
     ],
-    // companyGiftCards:[
-    //     {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: "GiftCards"
-    //     }
-    // ],
+    companyGiftCards: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "GiftCards",
+      },
+    ],
     PurchasedGiftCards: [
       {
         type: mongoose.Schema.Types.ObjectId,
