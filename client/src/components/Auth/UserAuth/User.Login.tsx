@@ -7,6 +7,7 @@ import flower from "../../../Assets/flower.svg";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { TbSquareKey } from "react-icons/tb";
 import Typewriter from "typewriter-effect";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -104,7 +105,9 @@ const Login = () => {
           <Button>Log in</Button>
           <P>
             I don't have an account.{" "}
-            <span style={{ color: "blue" }}>Create one</span>
+            <NavLink to="/register">
+              <span style={{ color: "blue" }}>Create one</span>
+            </NavLink>
           </P>
         </Right>
       </Container>
