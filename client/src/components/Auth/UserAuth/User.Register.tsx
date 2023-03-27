@@ -96,6 +96,16 @@ const Register = () => {
               />
               <input placeholder="E-mail address" />
             </Inputs>
+            <Inputs>
+              <BsTelephone
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="Phone-no" />
+            </Inputs>
           </Box>
         </Right>
       </Container>
