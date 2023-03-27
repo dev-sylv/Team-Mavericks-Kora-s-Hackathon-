@@ -62,6 +62,10 @@ const Register = () => {
             style={{ position: "absolute", bottom: "1%", left: "1px" }}
           />
         </Left>
+        <Right>
+          <h2>Create an Account</h2>
+          <p>Let us know you 😎</p>
+        </Right>
       </Container>
     </div>
   );
@@ -69,6 +73,33 @@ const Register = () => {
 
 export default Register;
 
+const Right = styled.div`
+  h2 {
+    margin-top: 60px;
+    margin-left: 60px;
+    font-size: 36px;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+    }
+  }
+
+  p {
+    margin-left: 60px;
+    margin-top: 45px;
+    font-size: 20px;
+    font-family: 600;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+      font-size: 18px;
+    }
+  }
+`;
 const H1 = styled.h1`
   color: white;
   font-size: 44px;
