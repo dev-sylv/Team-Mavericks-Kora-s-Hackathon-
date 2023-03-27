@@ -53,6 +53,15 @@ const Login = () => {
             />
             <input placeholder="Enter email or username" />
           </Inputs>
+          <Inputs>
+            <TbSquareKey
+              style={{
+                marginLeft: "15px",
+                fontSize: "25px",
+              }}
+            />
+            <input placeholder="Password" />
+          </Inputs>
         </Right>
       </Container>
     </div>
