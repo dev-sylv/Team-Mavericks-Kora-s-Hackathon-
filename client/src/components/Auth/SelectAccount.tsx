@@ -215,10 +215,9 @@ const Img = styled.img`
   position: absolute;
   left: 35%;
   bottom: 1px;
+  animation: bounce 2s;
+  animation-iteration-count: infinite;
 
-  :hover {
-    animation: bounce 0.5s;
-  }
   @keyframes bounce {
     0%,
     100% {
