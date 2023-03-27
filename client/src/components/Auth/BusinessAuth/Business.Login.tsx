@@ -57,12 +57,36 @@ const BizzLogin = () => {
             style={{ position: "absolute", bottom: "1%", left: "1px" }}
           />
         </Left>
+        <Right></Right>
       </Container>
     </div>
   );
 };
 
 export default BizzLogin;
+
+const Right = styled.div`
+  h2 {
+    margin-top: 60px;
+    margin-left: 60px;
+    font-size: 36px;
+    margin-bottom: 60px;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 const H1 = styled.h1`
   color: white;
