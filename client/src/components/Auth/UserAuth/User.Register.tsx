@@ -66,12 +66,35 @@ const Register = () => {
           <h2>Create an Account</h2>
           <p>Let us know you 😎</p>
         </Right>
+        <Box></Box>
       </Container>
     </div>
   );
 };
 
 export default Register;
+
+const Box = styled.div`
+  width: 650px;
+  height: 240px;
+  /* background-color: green; */
+  margin-left: 60px;
+  display: grid;
+  grid-template-rows: repeat(2, 65px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 23px;
+  margin-top: 43px;
+
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    height: 480px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 60px);
+    margin: 0;
+    margin-top: 20px;
+  }
+`;
 
 const Right = styled.div`
   h2 {
@@ -132,6 +155,8 @@ const Img = styled.img`
   position: absolute;
   left: 35%;
   bottom: 1px;
+  animation: bounce 2s;
+  animation-iteration-count: infinite;
 
   @media screen and (max-width: 960px) {
     position: static;
@@ -139,10 +164,11 @@ const Img = styled.img`
     margin-top: 60px;
     margin-left: 120px;
   }
-
+  /* 
   :hover {
     animation: bounce 0.5s;
-  }
+    animation-iteration-count: infinite;
+  } */
   @keyframes bounce {
     0%,
     100% {

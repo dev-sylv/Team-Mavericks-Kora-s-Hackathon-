@@ -250,6 +250,8 @@ const Img = styled.img`
   position: absolute;
   left: 35%;
   bottom: 1px;
+  animation: bounce 2s;
+  animation-iteration-count: infinite;
 
   @media screen and (max-width: 960px) {
     position: static;
@@ -258,9 +260,6 @@ const Img = styled.img`
     margin-left: 120px;
   }
 
-  :hover {
-    animation: bounce 0.5s;
-  }
   @keyframes bounce {
     0%,
     100% {
