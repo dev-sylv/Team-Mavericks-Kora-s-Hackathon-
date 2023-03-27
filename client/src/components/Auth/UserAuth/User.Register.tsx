@@ -127,6 +127,23 @@ const Register = () => {
               <input placeholder="Confirm password" />
             </Inputs>
           </Box>
+          <Div>
+            <input
+              type="checkbox"
+              style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
+            />
+            <p
+              style={{
+                margin: "0",
+                marginLeft: "10px",
+                fontSize: "15px",
+              }}
+            >
+              I agree to GIFTCARDSTONAIRA{" "}
+              <span style={{ color: "blue" }}>Terms and Conditions</span> &
+              <span style={{ color: "blue" }}>Privacy Policy</span>.
+            </p>
+          </Div>
         </Right>
       </Container>
     </div>
@@ -134,6 +151,26 @@ const Register = () => {
 };
 
 export default Register;
+
+const Div = styled.div`
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+  align-items: center;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 10px;
+    margin-top: 10px;
+    width: 80%;
+  }
+
+  p {
+    @media screen and (max-width: 960px) {
+      font-size: 10px;
+    }
+  }
+`;
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
