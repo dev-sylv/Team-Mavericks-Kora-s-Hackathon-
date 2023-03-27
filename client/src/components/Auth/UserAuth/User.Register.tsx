@@ -8,6 +8,7 @@ import { MdOutlinePersonOutline } from "react-icons/md";
 import { IoMailOutline } from "react-icons/io5";
 import { BsTelephone } from "react-icons/bs";
 import { TbSquareKey } from "react-icons/tb";
+import Typewriter from "typewriter-effect";
 
 const Register = () => {
   return (
@@ -32,7 +33,23 @@ const Register = () => {
           />
           <h4>MAVERICK</h4>
           <H1>
-            Let’s Get <br /> You Started
+            <Typewriter
+              options={{
+                loop: true,
+              }}
+              onInit={(typewriter: any) => {
+                typewriter
+                  .typeString("Let's get..")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .start()
+
+                  .typeString("You started")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .start();
+              }}
+            />
           </H1>
           <p>
             You’re a few steps away. Fill the required form and start trading
