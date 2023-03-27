@@ -106,6 +106,16 @@ const Register = () => {
               />
               <input placeholder="Phone-no" />
             </Inputs>
+            <Inputs>
+              <TbSquareKey
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="Password" />
+            </Inputs>
           </Box>
         </Right>
       </Container>
