@@ -116,6 +116,16 @@ const Register = () => {
               />
               <input placeholder="Password" />
             </Inputs>
+            <Inputs>
+              <TbSquareKey
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="Confirm password" />
+            </Inputs>
           </Box>
         </Right>
       </Container>
