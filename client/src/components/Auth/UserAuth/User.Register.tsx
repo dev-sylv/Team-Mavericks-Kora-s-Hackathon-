@@ -65,14 +65,65 @@ const Register = () => {
         <Right>
           <h2>Create an Account</h2>
           <p>Let us know you 😎</p>
+          <Box>
+            <Inputs>
+              <MdOutlinePersonOutline
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="Name" />
+            </Inputs>
+            <Inputs>
+              <MdOutlinePersonOutline
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="UserName" />
+            </Inputs>
+            <Inputs>
+              <IoMailOutline
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="E-mail address" />
+            </Inputs>
+          </Box>
         </Right>
-        <Box></Box>
       </Container>
     </div>
   );
 };
 
 export default Register;
+
+const Inputs = styled.div`
+  background-color: #f9f4ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+
+  input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 7px;
+
+    ::placeholder {
+      color: silver;
+    }
+  }
+`;
 
 const Box = styled.div`
   width: 650px;
