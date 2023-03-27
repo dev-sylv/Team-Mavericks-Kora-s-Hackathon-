@@ -6,6 +6,7 @@ import phone from "../../../Assets/phone.png";
 import flower from "../../../Assets/flower.svg";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { TbSquareKey } from "react-icons/tb";
+import Typewriter from "typewriter-effect";
 
 const Login = () => {
   return (
@@ -29,7 +30,23 @@ const Login = () => {
           />
           <h4>MAVERICK</h4>
           <H1>
-            Glad to have <br /> you back
+            <Typewriter
+              options={{
+                loop: true,
+              }}
+              onInit={(typewriter: any) => {
+                typewriter
+                  .typeString("Glad to have..")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .start()
+
+                  .typeString("You back")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .start();
+              }}
+            />
           </H1>
           <p>
             Glad to have you back We are glad to have you back ☺️, Let’s get you
@@ -62,7 +79,7 @@ const Login = () => {
             />
             <input placeholder="Password" />
           </Inputs>
-           <Div
+          <Div
             style={{
               display: "flex",
               marginLeft: "60px",
@@ -103,7 +120,6 @@ const Div = styled.div`
     width: 80%;
   }
 `;
-
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
