@@ -8,14 +8,16 @@ export interface UserDetails {
   confirmPassword: string;
   status: string;
   TransactionHistory: {}[];
-  // companyGiftCards: {}[];
+  companyGiftCards: {}[];
   PurchasedGiftCards: {}[];
+  dateTime: string;
 }
+
 export interface BusinessDetails {
   name: string;
   email: string;
   logo: string;
-  Balance: string;
+  Balance: number;
   phoneNumber: number;
   password: string;
   confirmPassword: string;
@@ -23,17 +25,22 @@ export interface BusinessDetails {
   status: string;
   TransactionHistory: {}[];
   giftCard: {}[];
+  dateTime: string;
 }
+
 export interface GiftCardDetails {
   name: string;
   BrandLogo: string;
   uniqueID: string;
   colour: string;
   moneyWorth: number;
+  dateTime: string;
 }
 
 export interface HistoryDetails {
+  owner: string;
   message: string;
-  transactionReference: number;
+  transactionReference: string;
   transactionType: string;
+  dateTime: string;
 }
