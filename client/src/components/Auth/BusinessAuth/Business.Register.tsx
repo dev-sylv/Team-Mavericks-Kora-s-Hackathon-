@@ -63,6 +63,7 @@ const BizzSignUp = () => {
         <Right>
           <h2>Create an Account</h2>
           <p>Let us know you 😎</p>
+          <Box></Box>
         </Right>
       </Container>
     </div>
@@ -70,6 +71,29 @@ const BizzSignUp = () => {
 };
 
 export default BizzSignUp;
+
+
+const Box = styled.div`
+  width: 650px;
+  height: 240px;
+  /* background-color: green; */
+  margin-left: 60px;
+  display: grid;
+  grid-template-rows: repeat(2, 65px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 23px;
+  margin-top: 43px;
+
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    height: 450px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 70px);
+    margin: 0;
+    margin-top: 20px;
+  }
+`;
 
 const Right = styled.div`
   h2 {
