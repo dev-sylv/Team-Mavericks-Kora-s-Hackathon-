@@ -61,6 +61,7 @@ const BizzLogin = () => {
           />
         </Left>
         <Right>
+          <h2>Log in</h2>
           <Inputs>
             <MdOutlinePersonOutline
               style={{
@@ -87,7 +88,7 @@ const BizzLogin = () => {
             <p>Always remember me</p>
           </Div>
           <Button>Log in</Button>
-           <P>
+          <P>
             I don't have an account.{" "}
             <span style={{ color: "blue" }}>Create one</span>
           </P>
