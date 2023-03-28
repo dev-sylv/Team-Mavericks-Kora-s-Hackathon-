@@ -6,6 +6,9 @@ import phone from "../../../Assets/phone.png";
 import flower from "../../../Assets/flower.svg";
 import Typewriter from "typewriter-effect";
 import { MdOutlinePersonOutline } from "react-icons/md";
+// import { TbSquareKey } from "react-icons/tb";
+import { IoMailOutline } from "react-icons/io5";
+import { BsTelephone } from "react-icons/bs";
 import { TbSquareKey } from "react-icons/tb";
 
 const BizzSignUp = () => {
@@ -73,6 +76,16 @@ const BizzSignUp = () => {
                 }}
               />
               <input placeholder="Business Name" />
+            </Inputs>
+            <Inputs>
+              <IoMailOutline
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="Business e-mail" />
             </Inputs>
           </Box>
         </Right>
