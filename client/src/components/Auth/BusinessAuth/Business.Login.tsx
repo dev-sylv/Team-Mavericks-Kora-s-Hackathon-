@@ -5,6 +5,7 @@ import lstar from "../../../Assets/stars.svg";
 import phone from "../../../Assets/phone.png";
 import flower from "../../../Assets/flower.svg";
 import Typewriter from "typewriter-effect";
+import { MdOutlinePersonOutline } from "react-icons/md";
 
 const BizzLogin = () => {
   return (
@@ -21,6 +22,7 @@ const BizzLogin = () => {
             alt=""
             style={{
               position: "absolute",
+
               top: "20%",
               left: "35px",
               height: "360px",
@@ -57,13 +59,54 @@ const BizzLogin = () => {
             style={{ position: "absolute", bottom: "1%", left: "1px" }}
           />
         </Left>
-        <Right></Right>
+        <Right>
+          <Inputs>
+            <MdOutlinePersonOutline
+              style={{
+                marginLeft: "15px",
+                fontSize: "25px",
+              }}
+            />
+            <input placeholder="Enter Business Name" />
+          </Inputs>
+        </Right>
       </Container>
     </div>
   );
 };
 
 export default BizzLogin;
+
+const Inputs = styled.div`
+  background-color: #f9f4ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: 430px;
+  height: 55px;
+  margin-bottom: 20px;
+  margin-left: 60px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 7px;
+
+    ::placeholder {
+      color: silver;
+      font-size: 15px;
+    }
+  }
+`;
 
 const Right = styled.div`
   h2 {
