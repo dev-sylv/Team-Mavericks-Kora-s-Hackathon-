@@ -60,7 +60,10 @@ const BizzSignUp = () => {
             style={{ position: "absolute", bottom: "1%", left: "1px" }}
           />
         </Left>
-        <Right></Right>
+        <Right>
+          <h2>Create an Account</h2>
+          <p>Let us know you 😎</p>
+        </Right>
       </Container>
     </div>
   );
