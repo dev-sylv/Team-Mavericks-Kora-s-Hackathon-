@@ -6,6 +6,7 @@ import phone from "../../../Assets/phone.png";
 import flower from "../../../Assets/flower.svg";
 import Typewriter from "typewriter-effect";
 import { MdOutlinePersonOutline } from "react-icons/md";
+import { TbSquareKey } from "react-icons/tb";
 
 const BizzLogin = () => {
   return (
@@ -68,6 +69,15 @@ const BizzLogin = () => {
               }}
             />
             <input placeholder="Enter Business Name" />
+          </Inputs>
+          <Inputs>
+            <TbSquareKey
+              style={{
+                marginLeft: "15px",
+                fontSize: "25px",
+              }}
+            />
+            <input placeholder="Password" />
           </Inputs>
         </Right>
       </Container>
