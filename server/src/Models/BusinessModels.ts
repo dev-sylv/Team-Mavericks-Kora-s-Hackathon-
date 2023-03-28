@@ -35,11 +35,14 @@ const BusinessSchema: Schema<BusinessDetails> = new Schema(
       unique: true,
     },
     Balance: {
-      type: String,
+      type: Number,
     },
     phoneNumber: {
       type: Number,
       unique: true,
+    },
+    dateTime: {
+      type: String,
     },
     status: {
       type: String,
