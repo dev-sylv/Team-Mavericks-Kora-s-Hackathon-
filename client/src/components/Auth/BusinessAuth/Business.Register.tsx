@@ -135,6 +135,7 @@ const BizzSignUp = () => {
               <span style={{ color: "blue" }}>Privacy Policy</span>.
             </p>
           </Div>
+          <Button>Create Account</Button>
         </Right>
       </Container>
     </div>
@@ -142,6 +143,25 @@ const BizzSignUp = () => {
 };
 
 export default BizzSignUp;
+
+const Button = styled.button`
+  width: 170px;
+  height: 48px;
+  margin-left: 60px;
+  border: 0;
+  background-color: #8246f3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 31px;
+  font-size: 16px;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-top: 20px;
+    width: 80%;
+  }
+`;
 
 const Div = styled.div`
   display: flex;
