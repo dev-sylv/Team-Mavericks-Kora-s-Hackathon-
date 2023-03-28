@@ -63,7 +63,18 @@ const BizzSignUp = () => {
         <Right>
           <h2>Create an Account</h2>
           <p>Let us know you 😎</p>
-          <Box></Box>
+          <Box>
+            <Inputs>
+              <MdOutlinePersonOutline
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                  color: "silver",
+                }}
+              />
+              <input placeholder="Business Name" />
+            </Inputs>
+          </Box>
         </Right>
       </Container>
     </div>
@@ -72,6 +83,25 @@ const BizzSignUp = () => {
 
 export default BizzSignUp;
 
+const Inputs = styled.div`
+  background-color: #f9f4ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+
+  input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 7px;
+
+    ::placeholder {
+      color: silver;
+    }
+  }
+`;
 
 const Box = styled.div`
   width: 650px;
