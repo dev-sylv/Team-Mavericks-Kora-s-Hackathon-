@@ -16,6 +16,9 @@ const GiftCardSchema: Schema<GiftCardDetails> = new Schema(
     colour: {
       type: String,
     },
+    dateTime: {
+      type: String,
+    },
     moneyWorth: {
       type: Number,
       required: [true, "Please enter the money worth of card"],
