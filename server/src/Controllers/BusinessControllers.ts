@@ -5,12 +5,11 @@ import bcrypt from "bcrypt";
 import otpgenerator from "otp-generator";
 import { AppError, HTTPCODES } from "../Utils/AppError";
 import BusinessModels from "../Models/BusinessModels";
-import { EnvironmentVariables } from "../Config/EnvironmentVariables";
 import { uuid } from "uuidv4";
 import axios from "axios";
-import HistoryModels from "../Models/HistoryModels";
 import mongoose from "mongoose";
-// import cloud from "../Config/cloudinary";
+import HistoryModels from "../Models/HistoryModels";
+import { EnvironmentVariables } from "../Config/EnvironmentVariables";
 
 // Users Registration:
 export const BusinessRegistration = AsyncHandler(
@@ -41,7 +40,7 @@ export const BusinessRegistration = AsyncHandler(
       confirmPassword: hashedPassword,
       BusinessCode:
         codename +
-        otpgenerator.generate(10, {
+        otpgenerator.generate(20, {
           upperCaseAlphabets: false,
           specialChars: false,
           digits: true,
@@ -115,6 +114,36 @@ export const GetSingleBusinessAcount = AsyncHandler(
   }
 );
 
+// Get single Business Account:
+export const GetSingleBusinessCards = AsyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const SingleBusiness = await BusinessModels.findById(req.params.businessID);
+
+    if (!SingleBusiness) {
+      next(
+        new AppError({
+          message: "Business Account not found",
+          httpcode: HTTPCODES.NOT_FOUND,
+        })
+      );
+    }
+
+    const cards = await BusinessModels.findById(req.params.businessID).populate(
+      {
+        path: "giftCard",
+        options: {
+          sort: { createdAt: -1 },
+        },
+      }
+    );
+
+    return res.status(200).json({
+      message: "Successfully got this business account",
+      data: cards!.giftCard,
+    });
+  }
+);
+
 // Update Business Details:
 export const UpdateBusinessLogo = AsyncHandler(
   async (req: any, res: Response, next: NextFunction) => {
@@ -143,7 +172,6 @@ export const UpdateBusinessLogo = AsyncHandler(
     });
   }
 );
-
 const secret = EnvironmentVariables.Kora_secret_key;
 
 // Business Transfer the funds they have in their business account to their bank:
@@ -151,6 +179,8 @@ export const CheckOutToBank = AsyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     // Get the business details wanting to transfer the money:
     const Business = await BusinessModels.findById(req.params.businessID);
+
+    const newDate = new Date().toDateString();
 
     const TransferReference = uuid();
 
@@ -166,60 +196,72 @@ export const CheckOutToBank = AsyncHandler(
       description,
     } = req.body;
 
-    let data = JSON.stringify({
-      reference: TransferReference,
-      destination: {
-        type: "bank_account",
-        amount: `${amount}`,
-        currency: "NGN",
-        narration: "Test Transfer Payment",
-        bank_account: {
-          bank: "033",
-          account: "0000000000",
-        },
-        customer: {
-          name: Business?.name,
-          email: Business?.email,
-        },
-      },
-    });
-
-    var config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: "https://api.korapay.com/merchant/api/v1/transactions/disburse",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${secret}`,
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(async function (response) {
-        // To update the balance of the business with the amount the business withdrawed
-        await BusinessModels.findByIdAndUpdate(req.params.businessID, {
-          MoneyBalance: Business!.Balance - amount,
-        });
-        // To generate a receipt for the business and a notification
-        const BusinessWithdrawalHistory = await HistoryModels.create({
-          message: `Dear ${Business?.name}, a withdrawal of ${amount} was made from your account and your balance is ${Business?.Balance}`,
-          transactionReference: TransferReference,
-          transactionType: "Debit",
-        });
-
-        Business?.TransactionHistory?.push(
-          new mongoose.Types.ObjectId(BusinessWithdrawalHistory?._id)
-        );
-        Business?.save();
-
-        return res.status(201).json({
-          message: "success",
-          data: JSON.parse(JSON.stringify(response.data)),
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
+    if (amount > Business!.Balance) {
+      return res.status(HTTPCODES.FORBIDDEN).json({
+        message: "Insufficient Funds",
       });
+    } else {
+      let data = JSON.stringify({
+        reference: TransferReference,
+        destination: {
+          type: "bank_account",
+          amount: `${amount}`,
+          currency: "NGN",
+          narration: "Test Transfer Payment",
+          bank_account: {
+            bank: "033",
+            account: "0000000000",
+          },
+          customer: {
+            name: Business?.name,
+            email: Business?.email,
+          },
+        },
+      });
+
+      var config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: "https://api.korapay.com/merchant/api/v1/transactions/disburse",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${secret}`,
+        },
+        data: data,
+      };
+
+      axios(config)
+        .then(async function (response) {
+          // To update the balance of the business with the amount the business withdrawed
+          await BusinessModels.findByIdAndUpdate(Business?._id, {
+            Balance: Business!.Balance - amount,
+            dateTime: newDate,
+          });
+          // To generate a receipt for the business and a notification
+          const BusinessWithdrawalHistory = await HistoryModels.create({
+            owner: Business?.name,
+            message: `Dear ${Business?.name}, a withdrawal of ${amount} was made from your account and your balance is ${Business?.Balance}`,
+            transactionReference: TransferReference,
+            transactionType: "Debit",
+            dateTime: newDate,
+          });
+
+          Business?.TransactionHistory?.push(
+            new mongoose.Types.ObjectId(BusinessWithdrawalHistory?._id)
+          );
+          Business?.save();
+
+          return res.status(201).json({
+            message: `${Business?.name} successfully withdrawed ${amount} from account`,
+            data: {
+              paymentInfo: BusinessWithdrawalHistory,
+              paymentData: JSON.parse(JSON.stringify(response.data)),
+            },
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
 );
