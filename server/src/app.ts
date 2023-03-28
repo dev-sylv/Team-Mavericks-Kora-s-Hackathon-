@@ -14,8 +14,6 @@ import { AppError, HTTPCODES } from "./Utils/AppError";
 
 import { ErrorHandler } from "./Middlewares/ErrorHandler/ErrorHandler";
 
-import user from "./Routes/userRouter";
-
 export const AppConfig = (app: Application) => {
   app.use(express.json());
   app.use(cors());
@@ -25,8 +23,6 @@ export const AppConfig = (app: Application) => {
   app.use("/api", UserRouter);
   app.use("/api", BusinessRouter);
   app.use("/api", GiftCardRoutes);
-
-  app.use("/", user);
 
   app.all("*", (req: Request, res: Response, next: NextFunction) => {
     next(
