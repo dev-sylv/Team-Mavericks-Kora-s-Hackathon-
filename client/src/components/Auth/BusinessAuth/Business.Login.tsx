@@ -79,6 +79,13 @@ const BizzLogin = () => {
             />
             <input placeholder="Password" />
           </Inputs>
+          <Div>
+            <input
+              type="checkbox"
+              style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
+            />
+            <p>Always remember me</p>
+          </Div>
         </Right>
       </Container>
     </div>
@@ -86,6 +93,18 @@ const BizzLogin = () => {
 };
 
 export default BizzLogin;
+
+const Div = styled.div`
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 15px;
+    width: 80%;
+  }
+`;
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
