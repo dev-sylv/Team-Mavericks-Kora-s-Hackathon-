@@ -87,6 +87,10 @@ const BizzLogin = () => {
             <p>Always remember me</p>
           </Div>
           <Button>Log in</Button>
+           <P>
+            I don't have an account.{" "}
+            <span style={{ color: "blue" }}>Create one</span>
+          </P>
         </Right>
       </Container>
     </div>
@@ -94,6 +98,20 @@ const BizzLogin = () => {
 };
 
 export default BizzLogin;
+
+const P = styled.p`
+  margin: 0;
+  margin-left: 60px;
+  font-size: 15px;
+  margin-top: 20px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 80%;
+  }
+`;
 
 const Button = styled.button`
   width: 170px;
